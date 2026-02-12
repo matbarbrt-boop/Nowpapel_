@@ -1,0 +1,382 @@
+/* Configurações Gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+    color: #333;
+    overflow-x: hidden; /* Crucial para celular: evita barra de rolagem lateral */
+}
+
+/* Menu de Navegação */
+header {
+    background-color: #ffffff;
+    padding: 15px 5%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Permite que o menu quebre linha se o nome for grande */
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #5e4f36; 
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    font-size: 0.9rem; /* Levemente menor para caber em telas pequenas */
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #5e4f36;
+}
+
+/* Seção Principal (Hero) */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 10%;
+    min-height: 80vh;
+    gap: 20px;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-content h1 {
+    font-size: clamp(1.8rem, 5vw, 3.5rem); 
+    margin-bottom: 20px;
+    color: #2d3436;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 1rem;
+    margin-bottom: 25px;
+    color: #636e72;
+}
+
+.btn-principal {
+    background-color: #978260;
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image img {
+    max-width: 80%; /* Ajustado para não ficar pequeno demais no PC */
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 15px 15px 0px #5e4f36; 
+}
+
+/* Estilo do bloco Como Funciona */
+.como-funciona {
+    background: #f4f1ed;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    text-align: left;
+    border-left: 5px solid #5e4f36;
+}
+
+.como-funciona h3 {
+    color: #5e4f36;
+    margin-bottom: 12px;
+    font-size: 1rem;
+}
+
+.como-funciona ul {
+    list-style: none;
+}
+
+.como-funciona li {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: flex-start; /* Alinha o número no topo se o texto quebrar linha */
+    color: #444;
+}
+
+.como-funciona li span {
+    background: #5e4f36;
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+/* --- ESTILO DO CATÁLOGO DE PRODUTOS --- */
+
+.catalogo-container {
+    padding: 40px 5%;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto; /* Centraliza o conteúdo em telas muito grandes */
+}
+
+.catalogo-container h2 {
+    font-size: 2.2rem;
+    color: #5e4f36;
+    margin-bottom: 10px;
+}
+
+.grid-produtos {
+    display: grid;
+    /* No PC: 3 ou 4 colunas. No Celular: 1 coluna automática */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.card-produto {
+    background: white;
+    padding: 15px;
+    border-radius: 18px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column; /* Garante que o botão fique sempre embaixo */
+    justify-content: space-between;
+}
+
+.card-produto:hover {
+    transform: translateY(-8px); /* Efeito flutuante ao passar o mouse */
+}
+
+.card-produto img {
+    width: 100%;
+    height: 250px; /* Altura fixa para todas as fotos ficarem iguais */
+    object-fit: cover; /* Corta a imagem sem distorcer para caber no espaço */
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.card-produto h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.btn-comprar {
+    background-color: #5e4f36;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+
+.btn-comprar:hover {
+    background-color: #978260;
+}
+
+/* --- AJUSTE PARA CELULARES PEQUENOS --- */
+@media (max-width: 480px) {
+    .grid-produtos {
+        grid-template-columns: 1fr; /* Força uma coluna única */
+        gap: 20px;
+    }
+    
+    .card-produto img {
+        height: 200px; /* Reduz um pouco a altura da foto no celular para economizar espaço */
+    }
+
+    .catalogo-container h2 {
+        font-size: 1.8rem;
+    }
+}
+/* Estilo da Janela Modal */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7); /* Fundo escuro atrás */
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #555;
+}
+
+.botoes-atendentes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-atendente {
+    background-color: #5e4f36;
+    color: white;
+    padding: 12px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-atendente:hover {
+    background-color: #978260;
+    transform: scale(1.03);
+}
+/* --- ESTILO DA PÁGINA DE CONTATO --- */
+
+.contato-container {
+    padding: 40px 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; /* Garante que o conteúdo não fique "colado" no topo */
+}
+
+.contato-box {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    max-width: 450px; /* Tamanho ideal para leitura */
+    width: 100%;
+    text-align: center;
+    border: 1px solid #f0f0f0;
+}
+
+.contato-box h1 {
+    color: #5e4f36;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.contato-box p {
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.links-contato {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaço entre os botões de Mateus e Enzo */
+}
+
+.card-link {
+    text-decoration: none;
+    padding: 18px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.card-link strong {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+}
+
+.card-link span {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+/* Estilo específico para os botões de WhatsApp */
+.whatsapp {
+    background-color: #e7f5ed; /* Verde bem clarinho */
+    color: #128c7e;
+    border-color: #25d366;
+}
+
+.whatsapp:hover {
+    background-color: #25d366;
+    color: white;
+    transform: scale(1.02);
+}
+
+/* Ajustes para Celular */
+@media (max-width: 480px) {
+    .contato-container {
+        padding: 20px 5%;
+    }
+
+    .contato-box {
+        padding: 20px;
+        box-shadow: none; /* Remove sombra no celular para um look mais limpo */
+        background-color: transparent; /* Opcional: deixa mais flat no mobile */
+    }
+
+    .card-link {
+        padding: 20px; /* Botão ainda maior no celular para facilitar o clique */
+    }
+}

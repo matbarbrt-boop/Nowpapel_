@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos | NowPapel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">NowPapel</div>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="produtos.html">Produtos</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="catalogo-container">
+        <h2>Catálogo</h2>
+        <p>Tudo o que você precisará para os estudos</p>
+
+        <div class="grid-produtos">
+            <div class="card-produto">
+                <img src="canetabic.jpg" alt="Caneta Bic">
+                <h3>Caneta Bic</h3>
+                <button class="btn-comprar" onclick="abrirModal()">Encomendar</button>
+            </div>
+
+            <div class="card-produto">
+                <img src="lapiscis.jpg" alt="Lapis Cis">
+                <h3>Lapis Cis</h3>
+                <button class="btn-comprar" onclick="abrirModal()">Encomendar</button>
+            </div>
+
+            <div class="card-produto">
+                <img src="almaço.jpg" alt="Almaço">
+                <h3>Almaço</h3>
+                <button class="btn-comprar" onclick="abrirModal()">Encomendar</button>
+            </div>
+
+            <div class="card-produto">
+                <img src="borracha.jpg" alt="Borracha">
+                <h3>Borracha</h3>
+                <button class="btn-comprar" onclick="abrirModal()">Encomendar</button>
+            </div>
+
+            <div class="card-produto">
+                <img src="cartolina.jpg" alt="Cartolina">
+                <h3>Cartolina</h3>
+                <button class="btn-comprar" onclick="abrirModal()">Encomendar</button>
+            </div>
+
+            <div class="card-produto">
+                <img src="sulfite.jpg" alt="Sulfite">
+                <h3>Sulfite x-unidades</h3>
+                <button class="btn-comprar" onclick="abrirModal()">Encomendar</button>
+            </div>
+        </div>
+    </main>
+
+    <div id="modal-contato" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="fecharModal()">&times;</span>
+            <h3>Com quem deseja falar?</h3>
+            <p>Fale com um de nós:</p>
+            <div class="botoes-atendentes">
+                <a href="https://wa.me/5513981065230" target="_blank" class="btn-atendente">Falar com Mateus</a>
+                <a href="https://wa.me/5513981115705" target="_blank" class="btn-atendente">Falar com Enzo</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function abrirModal() {
+            document.getElementById("modal-contato").style.display = "flex";
+        }
+        function fecharModal() {
+            document.getElementById("modal-contato").style.display = "none";
+        }
+        // Fecha se clicar fora da janelinha
+        window.onclick = function(event) {
+            var modal = document.getElementById("modal-contato");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
